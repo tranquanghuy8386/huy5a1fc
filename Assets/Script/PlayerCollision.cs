@@ -11,8 +11,9 @@ public class PlayerCollision : MonoBehaviour
     {
         if(collision.CompareTag("Coin"))
         {
+            Destroy(collision.gameObject);
             gameManeger.AddScore(1);
-            Debug.Log("Hit Coin");
+            
         }
     }
 }
