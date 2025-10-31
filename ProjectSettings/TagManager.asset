@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Coin
+  - Trap
+  - Enemy
+  - key
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -51,11 +55,17 @@ TagManager:
   - name: ForeGround
     uniqueID: 1858786875
     locked: 0
+  - name: Enemy
+    uniqueID: 1984576863
+    locked: 0
   - name: Player
     uniqueID: 4118801639
     locked: 0
   - name: item
     uniqueID: 668438825
+    locked: 0
+  - name: Ui
+    uniqueID: 1137650027
     locked: 0
   m_RenderingLayers:
   - Default
