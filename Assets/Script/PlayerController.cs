@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private Rigidbody2D rb;
     private GameManeger gameManeger;
+    private AudioManeger audioManeger;
     void Awake()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         gameManeger = FindAnyObjectByType<GameManeger>();
+        audioManeger = FindAnyObjectByType<AudioManeger>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManeger.IsGameOver()) return;
+        if (gameManeger.IsGameOver()||gameManeger.IsGameWin()) return;
         HandleMovement();
         HandleJump();
         UpdateAnimation();
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            audioManeger.PlayJumpSound();
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
         }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
